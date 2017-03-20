@@ -1,0 +1,538 @@
+/* 
+==============================================
+CONTENT:	Project Name Here
+AUTHOR:		Your Name Here
+==============================================
+
+TABLE OF CONTENTS:
+
+1. Main Layout
+2. Content
+
+==============================================
+*/
+
+
+$breakpoints: ( "phone": 450px,
+               	"tablet": 768px, 
+               	"desktop": 1024px) !default;
+
+@mixin respond-to($breakpoint) {
+ 
+  @if map-has-key($breakpoints, $breakpoint) {
+   
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+ 
+
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+
+
+/* 1. Main Layout ================================= */
+
+@font-face { font-family: Leafy; src: url('../img/leafy.otf'); }
+@font-face { font-family: AvantGar-book; src: url('../img/AvantGarGotItcTOT-Boo.otf'); } 
+
+@mixin step {
+	font-family: AvantGar-book;
+	font-size: 32px;
+}
+
+@mixin choose {
+	font-family: Leafy;
+	font-size: 32px;
+	text-transform: uppercase;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #f8fcff;
+	background-image: url("../img/background-pattern.png");
+	background-attachment: fixed;
+	height: 3000px;
+}
+
+.content {
+	padding: 30px;
+	font-family: sans-serif;
+	margin: 30px auto;
+	border-radius: 10px;
+}
+
+
+
+/* 2. Content ================================= */
+
+header{
+	width: 860px;
+	margin: 30px auto;
+	padding: 30px;
+	@include respond-to("tablet"){
+				width: 460px;
+			}
+	@include respond-to("phone"){
+				width: 360px;
+			}
+	
+}
+
+.logo {
+
+	h1{
+		margin: 0 auto;
+		background: url(../img/logo1.svg) no-repeat;
+		width: 85px;
+		height: 20px;
+
+		a{
+			color: transparent;
+			text-align: center;
+		}
+
+	}
+}
+
+.title{
+	height: 67px;
+	width: 590px;
+	margin: 30px auto;
+	@include respond-to("tablet"){
+					width: 390px;
+					height: auto;
+						}
+	@include respond-to("phone"){
+				width: 290px;
+				height: auto;
+				text-align: center;
+			}
+	img{
+			max-width: 100%;
+			max-height: 100%;
+		}
+}
+
+nav {
+	text-align: center;
+	margin-top: 50px;
+	ul{
+		li{
+			display: inline-block;
+			text-transform: uppercase;
+
+			.home a{
+				margin-left: 0;
+			}
+			
+			a{
+				text-decoration: none;
+				color: #4a5666;
+				font-family: Leafy;
+				font-size: 32px;
+				margin-left: 30px;
+			}
+		}
+	}
+}
+
+
+.custom{
+	background-image: url("../img/step-1-background.png");
+	width: 860px;
+	height: 892px;
+	position: relative;
+	@include respond-to("tablet"){
+				width: 660px;
+				height: 1010px;
+				background: #f7966a;
+			}
+	@include respond-to("phone"){
+				width: 360px;
+				height: 2008px;
+				background: #f7966a;
+			}	
+	
+}
+
+.top-row-shirts {
+			display: inline-block;
+
+			@include respond-to("phone"){
+				width: 300px;
+		
+			}
+		
+}
+
+.tee {
+	text-align: center;
+	padding: 33px;
+	display: inline-block;
+	@include respond-to("phone"){
+				padding-top: 30px;
+				padding-left: 2px;
+				padding-right: 20px;
+				display: block;
+			}	
+
+
+
+	p {
+		color: white;
+		font-family: AvantGar-book;
+	}
+}
+
+
+.tep {
+		@include step;
+		color: white;
+		display: inline-block;
+	}
+.top-step {
+	padding-top: 5%;
+	padding-left: 5%;
+	display: inline-block;
+	width: 100%;
+	padding-bottom: 5%;
+
+	img {
+		display: inline-block;
+		position: absolute;
+	}
+}
+
+.choose-shirt {
+	@include choose;
+	color: #feeb99;
+	display: inline-block;
+	position: absolute;
+	padding-left: 4%;
+	padding-top: 2%;
+	@include respond-to("phone"){
+				padding-left:9%;
+		
+			}
+}
+
+.step-2 {
+	padding-top: 5%;
+	padding-left: 5%;
+	display: inline-block;
+	width: 100%;
+	padding-bottom: 5%;
+
+	img {
+		display: inline-block;
+		position: absolute;
+	}
+
+}
+
+.choose-color {
+	@include choose;
+	color: #feeb99;
+	display: inline-block;
+	position: absolute;
+	padding-left: 4%;
+	padding-top: 2%;
+		@include respond-to("phone"){
+				padding-left:9%;
+		
+			}
+}
+
+.step-color {
+	@include step;
+	color: white;
+	display: inline-block;
+
+}
+
+.color-cloud {
+
+	@include respond-to("phone"){
+				padding-top:9%;
+		
+			}
+
+}
+
+.black-cloud {
+	width: 39%;
+    padding-left: 24%;
+
+    &:hover {
+    	background-image: url("../img/hovercloud.png") no-repeat;
+    	
+    }
+}
+
+.grey-cloud {
+	width: 20%;
+    padding-left: 3%;
+
+}
+
+.white-cloud {
+	width: 21%;
+	padding-left: 3%;
+}
+
+.step-3 {
+	padding-top: 5%;
+	padding-left: 5%;
+	display: inline-block;
+	width: 100%;
+	padding-bottom: 5%;
+
+	img {
+		display: inline-block;
+		position: absolute;
+	}
+
+	h1 {
+		@include step;
+		color: white;
+		display: inline-block;
+	}
+
+	h3 {
+		@include choose;
+		color: #556272;
+		display: inline-block;
+		position: absolute;
+		padding-left: 4%;
+		padding-top: 2%;
+		@include respond-to("phone"){
+				padding-left:11%;
+			}
+
+	}
+
+}
+
+
+
+.art-board {
+	width: 459px;
+	background-color: white;
+	height: 600px;
+	overflow: scroll;
+	display: inline-block;
+	border-radius: 34px;
+	@include respond-to("tablet"){
+				width: 309px;
+				height: 450px;
+				float: left;
+				margin-top: 8%;
+			}
+
+
+	img {
+		width: 150px;
+
+	}
+}
+
+.shirt-ex {
+	float: right;
+	margin: 30px auto;
+	@include respond-to("tablet"){
+				display: inline-block;
+				margin-top: 14%;
+			}
+}
+
+.crafting{
+	background-image: url("../img/step-2-background.png");
+	width: 860px;
+	height: 853px;
+	position: relative;
+	@include respond-to("tablet"){
+				width: 660px;
+				height: 685px;
+				background: #d4f588;
+			}
+	@include respond-to("phone"){
+				width: 360px;
+				height: 1000px;
+				background: #d4f588;
+			}	
+
+}
+
+.step-4 {
+	padding-top: 5%;
+	padding-left: 5%;
+	display: inline-block;
+	width: 100%;
+	padding-bottom: 5%;
+
+	img {
+		display: inline-block;
+		position: absolute;
+	}
+
+	h1 {
+		@include step;
+		color: white;
+		display: inline-block;
+	}
+
+	h3 {
+		@include choose;
+		color: #556272;
+		display: inline-block;
+		position: absolute;
+		padding-left: 5%;
+		padding-top: 2%;
+		@include respond-to("tablet"){
+			padding-left: 9%;
+			}	
+		@include respond-to("phone"){
+			padding-left: 9%;
+			}	
+
+	}
+
+}
+
+.confirm {
+	background-image: url("../img/step-3-background.png");
+	width: 860px;
+	height: 660px;
+	position: relative;
+	@include respond-to("tablet"){
+				width: 660px;
+			}
+	@include respond-to("phone"){
+				width: 360px;
+				height: 400px;
+			}	
+	
+
+	.shirt-left-end {
+		display: inline-block;
+
+		img {
+			@include respond-to("tablet"){
+				margin-top: 51px;
+			}	
+			@include respond-to("phone"){
+				width: 150px;
+				margin-top: 51px;
+			}	
+
+		}
+	}
+
+	
+
+	.end-words {
+		float: right;
+		padding-right: 25%;
+		@include respond-to("tablet"){
+				padding-right: 7%;
+				padding-top: 8%;
+			}
+		@include respond-to("phone"){
+				padding-right: 5%;
+			}
+		
+	}
+
+	.done {
+			color: #ea403c;
+			font-family: leafy;
+			font-size: 41px;
+			padding: 12%;
+			@include respond-to("phone"){
+				font-size: 21px;
+			}
+
+		}
+
+}
+
+form {
+	background-image: url("../img/orange-button.png");
+	width: 134%;
+	@include respond-to("tablet"){
+				width: 125%;
+			}
+	@include respond-to("phone"){
+				width: 100px;
+				max-width: 100%;
+			}
+
+	input{
+		margin: 18px auto;
+		background: none;
+		border: none;
+		color: white;
+		font-size: 24px;
+		font-family: AvantGar-book;
+		width: 100%;
+		height: 22px;
+		@include respond-to("phone"){
+				font-size: 14px;
+			}
+		
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer {
+		font-family: AvantGar-book;
+		color: #ffffff;
+		
+
+	img {
+		width: 100%;
+		margin: 30px auto;
+		margin-bottom: 0;
+	
+	}
+
+	h4 {
+		position: relative;
+    	top: 99%;
+    	font-size: 20px;
+    	left: 10%;
+    }
+
+    h5 {
+		position: relative;
+    	top: 93%;
+    	font-size: 20px;
+    	left: 78%;
+    }
+
+}
+
+

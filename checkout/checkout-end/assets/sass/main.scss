@@ -1,0 +1,313 @@
+/* 
+==============================================
+CONTENT:	Project Name Here
+AUTHOR:		Your Name Here
+==============================================
+
+TABLE OF CONTENTS:
+
+1. Main Layout
+2. Content
+
+==============================================
+*/
+
+
+
+
+
+
+$breakpoints: ( "phone": 450px,
+               	"tablet": 768px, 
+               	"desktop": 1024px) !default;
+
+@mixin respond-to($breakpoint) {
+ 
+  @if map-has-key($breakpoints, $breakpoint) {
+   
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+ 
+
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+
+
+
+
+
+
+/* 1. Main Layout ================================= */
+
+@font-face { font-family: Leafy; src: url('../img/leafy.otf'); }
+@font-face { font-family: AvantGar-book; src: url('../img/AvantGarGotItcTOT-Boo.otf'); } 
+
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #f8fcff;
+	background-image: url("../img/background-pattern.png");
+	background-attachment: fixed;
+	
+}
+
+.content {
+	padding: 30px;
+	font-family: sans-serif;
+	margin: 30px auto;
+	border-radius: 10px;
+}
+
+
+
+/* 2. Content ================================= */
+
+header{
+	width: 860px;
+	margin: 30px auto;
+	padding: 30px;
+	@include respond-to("tablet"){
+				width: 460px;
+			}
+	@include respond-to("phone"){
+				width: 360px;
+			}
+	
+}
+
+.logo {
+
+	h1{
+		margin: 0 auto;
+		background: url(../img/logo1.svg) no-repeat;
+		width: 85px;
+		height: 20px;
+
+		a{
+			color: transparent;
+			text-align: center;
+		}
+
+	}
+}
+
+.title{
+	height: 67px;
+	width: 590px;
+	margin: 30px auto;
+	@include respond-to("tablet"){
+					width: 390px;
+					height: auto;
+						}
+		@include respond-to("phone"){
+				width: 290px;
+				height: auto;
+				text-align: center;
+			}
+
+		img{
+			max-width: 100%;
+			max-height: 100%;
+		}
+}
+
+nav {
+	text-align: center;
+	margin-top: 50px;
+	ul{
+		li{
+			display: inline-block;
+			text-transform: uppercase;
+
+			.home a{
+				margin-left: 0;
+			}
+			
+			a{
+				text-decoration: none;
+				color: #4a5666;
+				font-family: Leafy;
+				font-size: 32px;
+				margin-left: 30px;
+			}
+		}
+	}
+}
+
+
+.custom{
+	background-image: url("../img/product-info-background.png");
+	width: 100%;
+	max-width: 860px;
+	height: 892px;
+	position: relative;
+	@include respond-to("tablet"){
+				width: 660px;
+				height: 950px;
+			}
+	@include respond-to("phone"){
+				width: 360px;
+				height: 1020px;
+			}	
+	
+}
+
+.move-left {
+	padding-left: 85px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer {
+		font-family: AvantGar-book;
+		color: #ffffff;
+
+
+	img {
+		width: 100%;
+		margin: 30px auto;
+		margin-bottom: 0;
+	
+	}
+
+	h4 {
+		position: relative;
+    	top: 99%;
+    	font-size: 20px;
+    	left: 10%;
+    }
+
+    h5 {
+		position: relative;
+    	top: 93%;
+    	font-size: 20px;
+    	left: 78%;
+    }
+
+}
+
+#form-shipping {
+	h2 {
+		font-family: AvantGar-book;
+		color: #556272;
+	}
+}
+
+#form-payment {
+	h2 {
+		font-family: AvantGar-book;
+		color: #556272;
+	}
+}
+
+.edit {
+	background: none;
+	border: none;
+	display: inline-block;
+}
+.edit-remove {
+	p { 
+		display: inline-block;
+	}
+}
+
+.remove {
+	background: none;
+	border: none;
+	display: inline-block;
+}
+
+.your-info {
+	display:block;
+	@include respond-to("phone"){
+				margin-left: -50px;
+			}
+}
+
+.shipping-info {
+	@include respond-to("phone"){
+				margin-left: -98px;
+			}
+}
+
+.payment-info {
+	@include respond-to("phone"){
+				margin-left: -100px;
+			}
+}
+.cart-left {
+	padding-top: 40px;
+	display: inline-block;
+
+}
+.qty {
+}
+.checkout {
+	background: none;
+	border: none;
+	position: relative;
+	float: right;
+	margin-bottom: 0;
+	@include respond-to("phone"){
+				margin-right: 34px;
+				margin-top: 5px;
+			}
+	
+	p {
+		color: white;
+		position: absolute;
+		font-size: 20px;
+		top: 35%;
+		left: 20%;
+		font-family: AvantGar-book;
+	}
+}
+
+.first-last {
+	display: inline-block;
+
+	.first {
+		float: left;
+	}
+
+	.last {
+		display: inline-block;
+	}
+}
+
+.address {
+	width: 263px;
+}
+
+
+
+
+
+
+
+

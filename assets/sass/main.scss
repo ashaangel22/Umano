@@ -1,0 +1,834 @@
+/* 
+==============================================
+CONTENT:	Project Name Here
+AUTHOR:		Your Name Here
+==============================================
+
+TABLE OF CONTENTS:
+
+1. Main Layout
+2. Content
+
+==============================================
+*/
+
+
+
+
+
+$breakpoints: ( "phone": 450px,
+               	"tablet": 768px, 
+               	"desktop": 1024px) !default;
+
+@mixin respond-to($breakpoint) {
+ 
+  @if map-has-key($breakpoints, $breakpoint) {
+   
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+ 
+
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 1. Main Layout ================================= */
+
+@font-face { font-family: Leafy; src: url('../img/leafy.otf'); }
+@font-face { font-family: AvantGar-book; src: url('../img/AvantGarGotItcTOT-Boo.otf'); } 
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #f8fcff;
+	background-image: url("../img/background-pattern.png");
+	background-attachment: fixed;
+	height: 3000px;
+}
+
+
+.content {
+	padding: 30px;
+	font-family: sans-serif;
+	margin: 30px auto;
+	border-radius: 10px;
+}
+
+
+
+/* 2. Content ================================= */
+
+header{
+	width: 860px;
+	margin: 30px auto;
+	padding: 30px;
+	@include respond-to("tablet"){
+				width: 460px;
+			}
+	@include respond-to("phone"){
+				width: 360px;
+			}
+	
+}
+
+.logo {
+
+
+	h1{
+		margin: 0 auto;
+		background: url(../img/logo1.svg) no-repeat;
+		width: 85px;
+		height: 20px;
+
+
+		a{
+			color: transparent;
+			text-align: center;
+		}
+
+	}
+}
+
+.title{
+		height: 67px;
+		width: 590px;
+		margin: 30px auto;
+		@include respond-to("tablet"){
+					width: 390px;
+					height: auto;
+						}
+		@include respond-to("phone"){
+				width: 290px;
+				height: auto;
+				text-align: center;
+			}
+
+		img{
+			max-width: 100%;
+			max-height: 100%;
+		}
+		
+	}
+	
+
+nav {
+	text-align: center;
+	margin-top: 50px;
+	ul{
+		li{
+			display: inline-block;
+			text-transform: uppercase;
+
+			.home a{
+				margin-left: 0;
+			}
+			
+			a{
+				text-decoration: none;
+				color: #4a5666;
+				font-family: Leafy;
+				font-size: 32px;
+				margin-left: 30px;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.path {
+  		stroke-dasharray: 1000;
+  		stroke-dashoffset: 1000;
+  		animation: dash 5s linear forwards;
+  		animation-iteration-count: infinite;
+  		animation-delay: 2s;
+
+	}
+
+@keyframes dash {
+		to {
+			stroke-dashoffset: 0;
+			
+
+		}
+	}
+
+
+.st0 {
+	stroke-dasharray: 1000;
+  		stroke-dashoffset: 1000;
+  		animation: dasher 3s linear forwards;
+  		animation-iteration-count: infinite;
+  		animation-delay: 3s;
+
+}
+
+@keyframes dasher {
+		to {
+			stroke-dashoffset: 0;
+			
+
+		}
+	}
+
+.step4shirt {
+	stroke-dasharray: 3000;
+  		stroke-dashoffset: 3000;
+  		animation: dashy 3s linear forwards;
+  		animation-iteration-count: infinite;
+
+}
+
+@keyframes dashy {
+		to {
+			stroke-dashoffset: 0;
+			
+
+		}
+}
+
+
+.custom{
+	background-image: url("../img/custom-background.png");
+	width: 860px;
+	height: 520px;
+	position: relative;
+	@include respond-to("tablet"){
+				width: 660px;
+				height: 420px;
+			}
+	@include respond-to("phone"){
+				width: 360px;
+				height: 520px;
+			}
+	
+
+		h2{
+			color: #4a5666;
+			font-size: 55px;
+			text-transform: uppercase;
+			font-family: Leafy;
+			position: absolute;
+			top: 70px;
+			left: 150px;
+			@include respond-to("tablet"){
+				font-size: 35px;
+				top: 27px;
+			}
+			@include respond-to("phone"){
+				 left: 111px;
+				 top: 55px;
+			}
+			
+		}
+
+		.work {
+
+
+			img{
+				position: absolute;
+				top: 129px;
+				left: 125px;
+				@include respond-to("tablet"){
+				top: 71px;
+				left: 87px;
+			}
+				@include respond-to("phone"){
+					top: 122px;
+					left: 57px;
+			}
+
+			}
+		}
+
+		.art {
+			img{
+				position: absolute;
+				top: 215px;
+				left: 118px;
+				@include respond-to("tablet"){
+				top: 158px;
+				left: 82px;
+			}
+				@include respond-to("phone"){
+				 left: 48px;
+				 top: 204px;
+				}
+				
+			}
+		}
+
+		.get-started {
+			background-image: url("../img/get-started.png");
+			width: 204px;
+			height: 57px;
+			position: relative;
+			top: 375px;
+			left: 100px;
+			@include respond-to("tablet"){
+				top: 308px;
+				left: 76px;
+			}
+			@include respond-to("phone"){
+				 left: 55px;
+				 top: 383px;
+			}
+			
+
+			h3{
+				font-family: AvantGar-book;
+				position: absolute;
+				top: 22px;
+				left: 24px;
+				font-weight: 100;
+				font-size: 2em;
+				
+			}
+		}
+}
+
+.crafting{
+	background-image: url("../img/product-info-background.png");
+	width: 860px;
+	height: 520px;
+	position: relative;
+	@include respond-to("tablet"){
+				width: 660px;
+			}
+	@include respond-to("phone"){
+				width: 360px;
+			}
+
+		h1 {
+			color: #4a5666;
+			text-transform: uppercase;
+			font-family: Leafy;
+			font-size: 37px;
+			position: absolute;
+			left: 452px;
+			top: 50px;
+			@include respond-to("tablet"){
+				left: 193px;
+				top: 40px;
+			}
+			@include respond-to("phone"){
+				left: 65px;
+				top: 40px;
+				font-size: 27px;
+			}
+		}
+
+		.perfect img{
+			position: absolute;
+			left: 520px;
+			top: 64px;
+			@include respond-to("tablet"){
+				left: 359px;
+				top: 40px;
+			}
+			@include respond-to("phone"){
+				left: 94px;
+				top: 40px;
+			}
+
+
+		}
+
+		h2 {
+			color: #ea403c;
+			text-transform: uppercase;
+			font-family: Leafy;
+			font-size: 27px;
+			padding-bottom: 5px;
+			@include respond-to("phone"){
+				font-size: 20px;
+			}
+
+		}
+
+		p {
+			color: #4a5666;
+			font-family: AvantGar-book;
+			font-size: 17px;
+			@include respond-to("phone"){
+				font-size: 15px;
+			}
+			
+
+		}
+
+		.t-shirt img {
+			position: absolute;
+			top: 29%;
+			left: 300px;
+			@include respond-to("tablet"){
+				left: 239px;
+			}
+			@include respond-to("phone"){
+				left: 105px;
+			}
+		}
+
+		.freak {
+			position: absolute;
+			left: 100px;
+			top: 30%;
+			text-align: right;
+			@include respond-to("tablet"){
+				left: 48px;
+			}
+			@include respond-to("phone"){
+				left: 10px;
+			}
+
+		}
+
+		.artwork {
+			position: absolute;
+			left: 600px;
+			top: 57%;
+			@include respond-to("tablet"){
+				left: 474px;
+			}
+			@include respond-to("phone"){
+				left: 20px;
+			}
+		}
+
+		.screenprinted{
+			text-align: right;
+			position: absolute;
+			left: 100px;
+			top: 67%;
+			@include respond-to("tablet"){
+				left: 60px;
+			}
+
+			@include respond-to("phone"){
+				left: 18px;
+				top: 80%;
+			}
+
+		}
+}
+
+
+
+
+
+
+.mission{
+	background-image: url("../img/mission-background.png");
+	width: 860px;
+	height: 1442px;
+	position: relative;
+	@include respond-to("tablet"){
+				width: 660px;
+			}
+	@include respond-to("phone"){
+				width: 360px;
+			}
+
+	.our-mission{
+		text-align: center;
+		height: 150px;
+		position: relative;
+		top: 30px;
+
+	}
+
+	h1 {
+		color: #ede2b1;
+		text-transform: uppercase;
+		font-family: Leafy;
+		font-size: 45px;
+		padding-bottom: 15px;
+
+	}
+
+	p {
+		color: #ffffff;
+		font-size: 21px;
+		font-family: AvantGar-book;
+		line-height: 26px;
+		@include respond-to("phone"){
+				font-size: 17px;
+				line-height: 18px;
+			}
+
+	}
+
+	
+
+	.step-1 {
+		height: 200px;
+		
+
+		.word {
+			padding-top: 15px;
+			width: 395px;
+			display: inline-block;
+			padding-left: 75px;
+			@include respond-to("tablet"){
+				text-align: left;
+				padding-left: 20px;
+			}
+			@include respond-to("phone"){
+				width: 280px;
+				font-size: 10px;
+				padding-top: 0;
+			}
+
+		}
+
+		svg#Layer_1 {
+			width: 300px;
+			height: auto;
+			float: right;
+			margin-right: 75px;
+			display: inline-block;
+			@include respond-to("tablet"){
+				width: 200px;
+				margin-right: 0;
+			}
+			@include respond-to("phone"){
+				margin-right: 47px;
+			}
+
+}
+
+	}
+
+	.step-2 {
+		height: 200px;
+
+		svg#Layer_5 {
+			width: 300px;
+			height: auto;
+			float: left;
+			margin-left: 63px;
+			display: inline-block;
+			@include respond-to("tablet"){
+				margin-left: -31px;
+			}
+			@include respond-to("phone"){
+				position: absolute;
+				padding-top: 185px;
+				padding-left: 53px;
+				margin-left: -20px;
+			}
+		}
+
+
+		.words{
+			padding-top: 70px;
+			display: inline-block;
+			text-align: right;
+			float: right;
+			padding-right: 75px;
+			@include respond-to("tablet"){
+				padding-right: 0;
+			}
+			@include respond-to("phone"){
+				padding-top: 0;
+			}
+
+		}
+	}
+
+	.step-3 {
+		height: 300px;
+		display: inline-block;
+
+
+		.worddd{
+			padding-top: 35px;
+			padding-left: 75px;
+			display: inline-block;
+			@include respond-to("tablet"){
+				padding-left: 0;
+			}
+			@include respond-to("phone"){
+				padding-top: 179px;
+			}
+
+
+		}
+
+		svg#Layer_3 {
+			width: 250px;
+			height: auto;
+			float: right;
+			display: inline-block;
+			margin-left: 36px;
+			margin-top: 62px;
+			@include respond-to("tablet"){
+				margin-left: 0;
+				margin-top: 0;
+			}
+			@include respond-to("phone"){
+				padding-left: 54px;
+				margin-right: 72px;
+			}
+
+
+		}
+
+		
+	}
+
+	.step-4 {
+		height: 250px;
+
+		svg#Layer_4 {
+			width: 250px;
+			height: auto;
+			margin-left: 93px;
+			@include respond-to("tablet"){
+				margin-left: 0;
+			}
+			@include respond-to("phone"){
+				position: absolute;
+				padding-top: 231px;
+				padding-left: 79px;
+				margin-left: -15px;
+			}
+		}
+
+
+		.wordddd{
+			display: inline-block;
+			float: right;
+			text-align: right;
+			padding-right: 75px;
+			@include respond-to("tablet"){
+				padding-right: 0;
+			}
+			@include respond-to("phone"){
+				padding-top: 135px;
+			}
+		}
+	}
+
+	.step-5 {
+
+		.worddddd{
+			display: inline-block;
+			padding-left: 75px;
+			@include respond-to("tablet"){
+				padding-left: 0;
+			}
+			@include respond-to("phone"){
+				padding-top: 102px;
+			}
+
+		}
+
+		svg#Layer_2 {
+			width: 563px;
+			height: auto;
+			display: inline-block;
+			float: right;
+			margin-right: -200px;
+			margin-top: -189px;
+			@include respond-to("tablet"){
+				margin-right: -247px;
+				margin-top: -288px;
+			}
+			@include respond-to("phone"){
+				margin-top: -96px;
+				padding-right: 231px;
+				margin-right: -278px;
+			}
+
+
+		}
+	}
+	
+	
+}
+
+
+
+
+.meet-katie {
+	background-image: url("../img/meet-katie-bg.png");
+	width: 860px;
+	height: 834px;
+	position: relative;
+	@include respond-to("tablet"){
+				width: 660px;
+			}
+	@include respond-to("phone"){
+				width: 360px;
+				height: 500px;
+			}
+
+		.katie {
+			position: absolute;
+			left: -7px;
+			top: -4px;
+			@include respond-to("tablet"){
+				width: 673px;
+				left: -5px;
+			}
+			@include respond-to("phone"){
+						width: 362px;
+						left: 1px;
+					}
+				}
+
+		.meet-title {
+			top: 10%;
+			left: 10%;
+			position: absolute;
+			z-index: 5;
+			@include respond-to("phone"){
+				    width: 178px;
+				    top: 2%;
+				    left: 5%;
+			}
+
+		}
+
+		.katie-p {
+			padding-top: 20%;
+			padding-right: 40%;
+			@include respond-to("phone"){
+				    margin-left: -8%;
+				    padding-top: 11%;
+			}
+		}
+
+		 .katie-title p {
+			display: block;
+			z-index: 1;
+			position: relative;
+			text-align: center;
+			color: #4a5666;
+			font-family: AvantGar-book;
+			font-size: 25px;
+			@include respond-to("phone"){
+				    font-size: 13px;
+				    width: 199px;
+			}
+		}
+
+		.we-met img {
+			position: absolute;
+			top: 61%;
+			left: 11%;
+			@include respond-to("tablet"){
+				   top: 54%;
+				   left: 21%;
+			}
+			@include respond-to("phone"){
+				    font-size: 13px;
+				    width: 200px;
+				    top: 44%;
+			}
+
+		}
+
+		.we-met h1 {
+				position: absolute;
+				top: 55%;
+				left: 23%;
+				color: #f78551;
+				font-family: Leafy;
+				font-size: 96px;
+				z-index: 1;
+				@include respond-to("tablet"){
+				    	top: 48%;
+				}
+				@include respond-to("phone"){
+				    	top: 40%;
+				    	font-size: 46px;
+				}
+		}
+
+		.we-met p {
+			position: absolute;
+		    width: 27%;
+		    font-family: AvantGar-book;
+		    color: #4a5666;
+		    top: 65%;
+		    left: 63%;
+		    line-height: 25px;
+		    font-size: 18px;
+		    @include respond-to("tablet"){
+				    	top: 85%;
+				    	left:23%;
+				    	width: 400px;
+				}
+		    @include respond-to("phone"){
+				    	left: 31px;
+				    	top: 70%;
+				    	width: 300px;
+				    	font-size: 15px;
+				}
+
+		}
+
+}
+
+footer {
+		font-family: AvantGar-book;
+		color: #ffffff;
+
+
+	img {
+		width: 100%;
+		height: auto;
+		margin: 30px auto;
+		margin-bottom: 0;
+	
+	}
+
+	h4 {
+		position: relative;
+    	top: 99%;
+    	font-size: 20px;
+    	left: 10%;
+    }
+
+    h5 {
+		position: relative;
+    	top: 93%;
+    	font-size: 20px;
+    	left: 78%;
+    }
+
+}
+
+
+
